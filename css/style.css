@@ -1,7 +1,32 @@
-.contentHide {
-	
-}
 
 .container {
 	display:inline-block;
+}
+
+ul {
+	display:inline-block;
+}
+
+.contentHide {
+	display: none; 
+}
+
+#main {
+	display: inline-block;
+}
+
+.who {
+	color:red;
+}
+
+.what {
+	color:blue;
+}
+
+.when {
+	color:green;
+}
+
+.why {
+	color:orange;
 }

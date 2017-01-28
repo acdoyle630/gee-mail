@@ -14,81 +14,25 @@
         console.log (geemailsLoaded.length);
         
 
-
-          function createDate ( arr ) {
-          for (var i=geemails.length-geemailsLoaded.length; i<arr.length; i++) {
-            //console.log( arr[i].date);
-            var datePush = document.createElement('li');
-            datePush.className = "content";
-            datePush.innerHTML = arr[i].date;
-            date.appendChild (datePush);
-            
-            }
-    }
-        createDate (window.geemails);
-
-
-
-        function createSubject ( arr ) {
-          for (var i=geemails.length-geemailsLoaded.length; i<arr.length; i++) {
-            var subjectPush = document.createElement ('li');
-            subjectPush.className = 'content';
-            subjectPush.innerHTML = arr[i].subject;
-            subject.appendChild (subjectPush);
-          }
+        for (var i=0; i<10; i++) {
+          var date = document.createElement ('span');
+          date.className = 'when';
+          date.innerHTML = window.geemails[i].date;
+          main.appendChild (date);
+          var send = document.createElement ('span');
+          send.className = 'who';
+          send.innerHTML = window.geemails[i].sender;
+          main.appendChild (send);
+          var sub = document.createElement ('span');
+          sub.className = 'what';
+          sub.innerHTML = window.geemails[i].subject;
+          main.appendChild (sub);
+          var bod = document.createElement ('span');
+          bod.className = 'why';
+          bod.innerHTML = window.geemails[i].body;
+          main.appendChild (bod);
         }
-        createSubject(window.geemails);
-
-        function createSender ( arr ) {
-          for (var i=geemails.length-geemailsLoaded.length; i<arr.length; i++) {
-            var senderPush = document.createElement ('li');
-            senderPush.className = 'content';
-            senderPush.innerHTML = arr[i].sender;
-            sender.appendChild (senderPush);
-          }
-        }
-        createSender (window.geemails);
-      
-
-        function createBody ( arr ) {
-          for (var i=geemails.length-geemailsLoaded.length; i<arr.length; i++) {
-            var bodyPush = document.createElement ('li');
-            bodyPush.className = "contentHide";
-            bodyPush.innerHTML = arr[i].body;
-            body.appendChild (bodyPush);
-          }
-        }
-      
-        createBody (window.geemails);
-
-
-        function gen ( ) {
-          if (geemails.length>geemailsLoaded.length){
-            createDate(window.geemails);
-            createSender(window.geemails);
-            createSubject(window.geemails);
-            createBody(window.geemails);  
-        } else {
-          console.log ('fuck');
-        }
-
-      }
-      
-      console.log(geemails.length);
-      console.log(geemailsLoaded.length);
-
-
-      gen();
-
-      console.log(geemails.length);
-      console.log(geemailsLoaded.length);
-
-      gen();
-
-
-
-
-
+     
 
       };
     </script>
@@ -101,18 +45,7 @@
      <span  class = "contentHide">Body:</span> -->
 	   
 
-      <table>
-          <thead>
-            <tr class ='content'>date</tr>
-            <tr class ='content'>sub</tr>
-            <tr class ='content'>sender</tr>
-            <tr class ='contentHide'>body</tr>
-              <td><ul id = 'date'></ul></td>
-              <td><ul id = 'subject'></ul></td>
-              <td><ul id = 'sender'></ul></td>
-              <td><ul id = 'body'></ul></td>
-        </table>
-
+      
         
 
 
