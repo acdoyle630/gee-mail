@@ -10,9 +10,10 @@
         
        var geemailsLength = window.geemails.length;	//test geemail length
         console.log(geemails.length);    
-        var geemailsLoaded = document.getElementsByClassName ("contentHide");
+        var geemailsLoaded = document.getElementsByClassName ("why");
         console.log (geemailsLoaded.length);
-        
+
+
 
         for (var i=0; i<10; i++) {
           var date = document.createElement ('span');
@@ -30,14 +31,39 @@
           var bod = document.createElement ('span');
           bod.className = 'why';
           bod.innerHTML = window.geemails[i].body;
-          main.appendChild (bod);
+          sub.appendChild (bod);
         }
-     
+        
+        var hideBody = document.getElementsByClassName ('what');
+          for (i=0; i<hideBody.length; i++) {
+            //console.log (hideBody[i]);
+            hideBody[i].addEventListener ('click', hide);
+        }
+
+        function hide ( ) {
+          var elem = this.querySelectorAll('.why')[0];
+          if (elem.style.display === 'none') {
+            elem.style.display = 'block';
+          } else {
+            elem.style.display = 'none';
+          }
+        }
+
+
+
+        var inbox = document.createElement ('span');
+        inbox.id = "mails";
+        inbox.innerHTML = geemailsLoaded.length;
+        count.appendChild (inbox);
+
+
+
 
       };
     </script>
 	</head>
 	<body>
+    <div id="count">Messages:</div><br>
 		<div class="container" id="main">
      <!--  <span  class = "content" >Date:<div id="date">today</div></span>
      <span  class="content">Sender:</span>
