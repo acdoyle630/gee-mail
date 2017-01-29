@@ -28,6 +28,10 @@
           sub.className = 'what';
           sub.innerHTML = window.geemails[i].subject;
           main.appendChild (sub);
+          var bodyButton = document.createElement ('button');
+          bodyButton.className = 'button';
+          bodyButton.innerHTML = 'Show Body:';
+          sub.appendChild (bodyButton);
           var bod = document.createElement ('span');
           bod.className = 'why';
           bod.innerHTML = window.geemails[i].body;
@@ -48,6 +52,13 @@
             elem.style.display = 'none';
           }
         }
+
+
+        /*var bodyButton = document.getElementsByClassName ('what');
+          for (i=0; i<bodyButton.length; i++);
+            bodyButton[i].addEventListener ('click', hidden);
+*/
+
 
 
 
