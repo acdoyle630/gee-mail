@@ -38,12 +38,40 @@
           sub.appendChild (bod);
         }
         
+
+
+
+        function generate (arr) { 
+          var newDate = document.createElement ('span');
+          newDate.className = 'when';
+          newDate.innerHTML = arr[Math.floor(Math.random ()*10)].date;
+          main.appendChild (newDate);
+          var newSend = document.createElement ('span');
+          newSend.className = 'who';
+          newSend.innerHTML = arr[Math.floor(Math.random() *10)].sender;
+          main.appendChild(newSend);
+          var newSub = document.createElement ('span');
+          newSub.className ='what';
+          newSub.innerHTML = arr[Math.floor(Math.random()*10)].subject;
+          main.appendChild (newSub);
+          var newButton = document.createElement ('button');
+          newButton.className = 'button';
+          newButton.innerHTML = 'Show Body:';
+          newSub.appendChild (newButton);
+          var newBody = document.createElement ('span');
+          newBody.className = 'why';
+          newBody.innerHTML = arr[Math.floor(Math.random()*10)].body;
+          newSub.appendChild (newBody);
+        }
+
+        setInterval(generate(window.geemails), 3000);
+
         var hideBody = document.getElementsByClassName ('what');
           for (i=0; i<hideBody.length; i++) {
             //console.log (hideBody[i]);
             hideBody[i].addEventListener ('click', hide);
         }
-
+      
         function hide ( ) {
           var elem = this.querySelectorAll('.why')[0];
           if (elem.style.display === 'none') {
@@ -52,12 +80,6 @@
             elem.style.display = 'none';
           }
         }
-
-
-        /*var bodyButton = document.getElementsByClassName ('what');
-          for (i=0; i<bodyButton.length; i++);
-            bodyButton[i].addEventListener ('click', hidden);
-*/
 
 
 
@@ -72,21 +94,21 @@
 
       };
     </script>
-	</head>
-	<body>
+  </head>
+  <body>
     <div id="count">Messages:</div><br>
-		<div class="container" id="main">
+    <div class="container" id="main">
      <!--  <span  class = "content" >Date:<div id="date">today</div></span>
      <span  class="content">Sender:</span>
      <span  class = "content">Subject:</span>
      <span  class = "contentHide">Body:</span> -->
-	   
+     
 
       
         
 
 
-
+     <!--  <button onclick="setInterval(generate(window.geemails), 3000)";> "fuck" </button> -->
 
 
 
