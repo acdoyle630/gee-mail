@@ -16,7 +16,7 @@
 
 
         for (var i=0; i<10; i++) {
-          var date = document.createElement ('span');
+          var date = document.createElement ('div');
           date.className = 'when';
           date.innerHTML = window.geemails[i].date;
           main.appendChild (date);
@@ -42,7 +42,7 @@
 
 
         function generate (arr) { 
-          var newDate = document.createElement ('span');
+          var newDate = document.createElement ('div');
           newDate.className = 'when';
           newDate.innerHTML = arr[Math.floor(Math.random ()*10)].date;
           main.appendChild (newDate);
@@ -64,7 +64,8 @@
           newSub.appendChild (newBody);
         }
 
-        setInterval(generate(window.geemails), 3000);
+          
+        //setInterval(generate(window.geemails), 3000);
 
         var hideBody = document.getElementsByClassName ('what');
           for (i=0; i<hideBody.length; i++) {
@@ -91,17 +92,19 @@
 
 
 
-
       };
     </script>
   </head>
   <body>
+    <div id="head"><h1>GeeMail</h1></div>
+    <div> <br></div>
     <div id="count">Messages:</div><br>
-    <div class="container" id="main">
-     <!--  <span  class = "content" >Date:<div id="date">today</div></span>
-     <span  class="content">Sender:</span>
-     <span  class = "content">Subject:</span>
-     <span  class = "contentHide">Body:</span> -->
+    <div id="full">
+      <div class="container" id="main">
+      <!--  <span  class = "content" >Date:<div id="date">today</div></span>
+      <span  class="content">Sender:</span>
+      <span  class = "content">Subject:</span>
+      <span  class = "contentHide">Body:</span> -->
      
 
       
@@ -111,7 +114,8 @@
      <!--  <button onclick="setInterval(generate(window.geemails), 3000)";> "fuck" </button> -->
 
 
-
+  </div>
+  <div id="footer"><br></div>
   </body>
 </html>
 

@@ -1,9 +1,10 @@
 #main {
-	display: inline-block;
+	display: inline;
 }
 
 .who {
 	color:red;
+	padding-right: :10px;
 }
 
 .what {
@@ -19,3 +20,18 @@
 	display: none;
 }
 
+span {
+	background-color: grey
+}
+
+#full {
+	background-color: grey;
+	padding-left: 30px;
+	border-bottom: red solid 10px;
+}
+
+#head {
+	color:red;
+	text-align: center;
+	border-bottom:solid red 10px;
+}
