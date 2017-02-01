@@ -1,38 +1,29 @@
+<<!DOCTYPE html>
 <html>
-	<head>
-		<script src="js/mail-generator.js"></script>
-		<link href="css/style.css" rel="stylesheet" media="screen">
+  <head>
+    <script src="js/mail-generator.js"></script>
+    <link href="css/style.css" rel="stylesheet" media="screen">
     <script>
-      window.onload = function(){
-        // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
-        // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
-        
-        
-       var geemailsLength = window.geemails.length;	//test geemail length
-        console.log(geemails.length);    
-        var geemailsLoaded = document.getElementsByClassName ("why");
-        console.log (geemailsLoaded.length);
-
-
-
-        for (var i=0; i<10; i++) {
+    window.onload = function ( ) {
+  for (var i=0; i<10; i++) {
           var date = document.createElement ('div');
           date.className = 'when';
-          date.innerHTML = window.geemails[i].date;
+          date.innerHTML = 'DATE: ' + window.geemails[i].date;
           main.appendChild (date);
           var send = document.createElement ('span');
           send.className = 'who';
-          send.innerHTML = window.geemails[i].sender;
+          send.innerHTML = 'Sender: ' +window.geemails[i].sender;
           main.appendChild (send);
           var sub = document.createElement ('span');
           sub.className = 'what';
-          sub.innerHTML = window.geemails[i].subject;
+          sub.innerHTML = ' Subject: ' +window.geemails[i].subject;
           main.appendChild (sub);
           var bodyButton = document.createElement ('button');
           bodyButton.className = 'button';
           bodyButton.innerHTML = 'Show Body:';
           sub.appendChild (bodyButton);
           var bod = document.createElement ('span');
+          bod.style.display = 'none';
           bod.className = 'why';
           bod.innerHTML = window.geemails[i].body;
           sub.appendChild (bod);
@@ -41,38 +32,61 @@
 
 
 
+        
         function generate (arr) { 
           var newDate = document.createElement ('div');
           newDate.className = 'when';
-          newDate.innerHTML = arr[Math.floor(Math.random ()*10)].date;
+          newDate.innerHTML = 'Date: ' +arr[Math.floor(Math.random ()*10)].date;
           main.appendChild (newDate);
           var newSend = document.createElement ('span');
           newSend.className = 'who';
-          newSend.innerHTML = arr[Math.floor(Math.random() *10)].sender;
+          newSend.innerHTML = 'Sender: ' + arr[Math.floor(Math.random() *10)].sender;
           main.appendChild(newSend);
           var newSub = document.createElement ('span');
           newSub.className ='what';
-          newSub.innerHTML = arr[Math.floor(Math.random()*10)].subject;
+          newSub.innerHTML = ' Subject: ' + arr[Math.floor(Math.random()*10)].subject;
           main.appendChild (newSub);
           var newButton = document.createElement ('button');
           newButton.className = 'button';
           newButton.innerHTML = 'Show Body:';
           newSub.appendChild (newButton);
           var newBody = document.createElement ('span');
+          newBody.style.display = 'none';
           newBody.className = 'why';
           newBody.innerHTML = arr[Math.floor(Math.random()*10)].body;
           newSub.appendChild (newBody);
+          /*var newCount = document.createElement ('div');
+          newCount.id = 'count';
+          newCount.innerHTML = "messages: " + geemailsLoaded.length;
+          count.appendChild (newCount);*/
         }
 
-          
-        //setInterval(generate(window.geemails), 3000);
-
-        var hideBody = document.getElementsByClassName ('what');
-          for (i=0; i<hideBody.length; i++) {
-            //console.log (hideBody[i]);
-            hideBody[i].addEventListener ('click', hide);
-        }
+          window.setInterval(function(){ 
+            generate (window.geemails);
+            console.log (document.getElementsByClassName ('why').length);
+            var newCount = document.getElementById('count');
+            newCount.innerHTML = 'Messages ' + geemailsLoaded.length;
+            for (i=0; i<hideBody.length; i++) {
+              //console.log (hideBody[i]);
+              hideBody[i].addEventListener ('click', hide);
+            }
       
+            
+
+            //geemailsLoaded ++;
+          },6000);
+          
+         /* window.setInterval(function(){
+            incriment ( );
+          },5000);
+
+          function incriment ( ) {
+            return geemailsLoaded ++;
+          }*/
+//TEST
+        
+        var hideBody = document.getElementsByClassName ('what');
+        
         function hide ( ) {
           var elem = this.querySelectorAll('.why')[0];
           if (elem.style.display === 'none') {
@@ -82,6 +96,15 @@
           }
         }
 
+        for (i=0; i<hideBody.length; i++) {
+          //console.log (hideBody[i]);
+          hideBody[i].addEventListener ('click', hide);
+        }
+
+        var geemailsLength = window.geemails.length;  //test geemail length
+        console.log(geemails.length);    
+        var geemailsLoaded = document.getElementsByClassName ("why");
+        console.log (geemailsLoaded.length);
 
 
 
@@ -115,8 +138,7 @@
 
 
   </div>
-  <div id="footer"><br></div>
+  
+  <div id='footer'>Adam Doyle </div>
   </body>
 </html>
-
-
