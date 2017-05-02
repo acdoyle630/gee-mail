@@ -4,19 +4,21 @@
     <script src="js/mail-generator.js"></script>
     <link href="css/style.css" rel="stylesheet" media="screen">
     <script>
+    /*jshint esversion: 6*/
     window.onload = function ( ) {
-  for (var i=0; i<10; i++) {
+      for (var i=0; i<10; i++) {
+
           var date = document.createElement ('div');
           date.className = 'when';
-          date.innerHTML = 'DATE: ' + window.geemails[i].date;
+          date.innerHTML = `DATE: ${window.geemails[1].date}`
           main.appendChild (date);
           var send = document.createElement ('span');
           send.className = 'who';
-          send.innerHTML = 'Sender: ' +window.geemails[i].sender;
+          send.innerHTML = `Sender: ${window.geemails}`[i].sender;
           main.appendChild (send);
           var sub = document.createElement ('span');
           sub.className = 'what';
-          sub.innerHTML = ' Subject: ' +window.geemails[i].subject;
+          sub.innerHTML = `Subject: ${window.geemails}`[i].subject;
           main.appendChild (sub);
           var bodyButton = document.createElement ('button');
           bodyButton.className = 'button';
@@ -28,12 +30,8 @@
           bod.innerHTML = window.geemails[i].body;
           sub.appendChild (bod);
         }
-        
 
-
-
-        
-        function generate (arr) { 
+        function generate (arr) {
           var newDate = document.createElement ('div');
           newDate.className = 'when';
           newDate.innerHTML = 'Date: ' +arr[Math.floor(Math.random ()*10)].date;
@@ -55,38 +53,20 @@
           newBody.className = 'why';
           newBody.innerHTML = arr[Math.floor(Math.random()*10)].body;
           newSub.appendChild (newBody);
-          /*var newCount = document.createElement ('div');
-          newCount.id = 'count';
-          newCount.innerHTML = "messages: " + geemailsLoaded.length;
-          count.appendChild (newCount);*/
         }
 
-          window.setInterval(function(){ 
+          window.setInterval(function(){
             generate (window.geemails);
             console.log (document.getElementsByClassName ('why').length);
             var newCount = document.getElementById('count');
             newCount.innerHTML = 'Messages ' + geemailsLoaded.length;
             for (i=0; i<hideBody.length; i++) {
-              //console.log (hideBody[i]);
-              hideBody[i].addEventListener ('click', hide);
+             hideBody[i].addEventListener ('click', hide);
             }
-      
-            
-
-            //geemailsLoaded ++;
           },6000);
-          
-         /* window.setInterval(function(){
-            incriment ( );
-          },5000);
 
-          function incriment ( ) {
-            return geemailsLoaded ++;
-          }*/
-//TEST
-        
         var hideBody = document.getElementsByClassName ('what');
-        
+
         function hide ( ) {
           var elem = this.querySelectorAll('.why')[0];
           if (elem.style.display === 'none') {
@@ -97,12 +77,11 @@
         }
 
         for (i=0; i<hideBody.length; i++) {
-          //console.log (hideBody[i]);
           hideBody[i].addEventListener ('click', hide);
         }
 
         var geemailsLength = window.geemails.length;  //test geemail length
-        console.log(geemails.length);    
+        console.log(geemails.length);
         var geemailsLoaded = document.getElementsByClassName ("why");
         console.log (geemailsLoaded.length);
 
@@ -124,21 +103,7 @@
     <div id="count">Messages:</div><br>
     <div id="full">
       <div class="container" id="main">
-      <!--  <span  class = "content" >Date:<div id="date">today</div></span>
-      <span  class="content">Sender:</span>
-      <span  class = "content">Subject:</span>
-      <span  class = "contentHide">Body:</span> -->
-     
-
-      
-        
-
-
-     <!--  <button onclick="setInterval(generate(window.geemails), 3000)";> "fuck" </button> -->
-
-
   </div>
-  
   <div id='footer'>Adam Doyle </div>
   </body>
 </html>
