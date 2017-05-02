@@ -1,3 +1,4 @@
+
 <<!DOCTYPE html>
 <html>
   <head>
@@ -6,25 +7,25 @@
     <script>
     /*jshint esversion: 6*/
     window.onload = function ( ) {
-      for (var i=0; i<10; i++) {
+      for (let i=0; i<10; i++) {
 
-          var date = document.createElement ('div');
+          const date = document.createElement ('div');
           date.className = 'when';
           date.innerHTML = `DATE: ${window.geemails[1].date}`
           main.appendChild (date);
-          var send = document.createElement ('span');
+          const send = document.createElement ('span');
           send.className = 'who';
           send.innerHTML = `Sender: ${window.geemails}`[i].sender;
           main.appendChild (send);
-          var sub = document.createElement ('span');
+          const sub = document.createElement ('span');
           sub.className = 'what';
           sub.innerHTML = `Subject: ${window.geemails}`[i].subject;
           main.appendChild (sub);
-          var bodyButton = document.createElement ('button');
+          const bodyButton = document.createElement ('button');
           bodyButton.className = 'button';
           bodyButton.innerHTML = 'Show Body:';
           sub.appendChild (bodyButton);
-          var bod = document.createElement ('span');
+          const bod = document.createElement ('span');
           bod.style.display = 'none';
           bod.className = 'why';
           bod.innerHTML = window.geemails[i].body;
@@ -32,23 +33,23 @@
         }
 
         function generate (arr) {
-          var newDate = document.createElement ('div');
+          const newDate = document.createElement ('div');
           newDate.className = 'when';
           newDate.innerHTML = 'Date: ' +arr[Math.floor(Math.random ()*10)].date;
           main.appendChild (newDate);
-          var newSend = document.createElement ('span');
+          const newSend = document.createElement ('span');
           newSend.className = 'who';
           newSend.innerHTML = 'Sender: ' + arr[Math.floor(Math.random() *10)].sender;
           main.appendChild(newSend);
-          var newSub = document.createElement ('span');
+          const newSub = document.createElement ('span');
           newSub.className ='what';
           newSub.innerHTML = ' Subject: ' + arr[Math.floor(Math.random()*10)].subject;
           main.appendChild (newSub);
-          var newButton = document.createElement ('button');
+          const newButton = document.createElement ('button');
           newButton.className = 'button';
           newButton.innerHTML = 'Show Body:';
           newSub.appendChild (newButton);
-          var newBody = document.createElement ('span');
+          const newBody = document.createElement ('span');
           newBody.style.display = 'none';
           newBody.className = 'why';
           newBody.innerHTML = arr[Math.floor(Math.random()*10)].body;
@@ -58,17 +59,17 @@
           window.setInterval(function(){
             generate (window.geemails);
             console.log (document.getElementsByClassName ('why').length);
-            var newCount = document.getElementById('count');
+            const newCount = document.getElementById('count');
             newCount.innerHTML = 'Messages ' + geemailsLoaded.length;
             for (i=0; i<hideBody.length; i++) {
              hideBody[i].addEventListener ('click', hide);
             }
           },6000);
 
-        var hideBody = document.getElementsByClassName ('what');
+        const hideBody = document.getElementsByClassName ('what');
 
         function hide ( ) {
-          var elem = this.querySelectorAll('.why')[0];
+          const elem = this.querySelectorAll('.why')[0];
           if (elem.style.display === 'none') {
             elem.style.display = 'block';
           } else {
@@ -80,14 +81,14 @@
           hideBody[i].addEventListener ('click', hide);
         }
 
-        var geemailsLength = window.geemails.length;  //test geemail length
+        const geemailsLength = window.geemails.length;  //test geemail length
         console.log(geemails.length);
-        var geemailsLoaded = document.getElementsByClassName ("why");
+        const geemailsLoaded = document.getElementsByClassName ("why");
         console.log (geemailsLoaded.length);
 
 
 
-        var inbox = document.createElement ('span');
+        const inbox = document.createElement ('span');
         inbox.id = "mails";
         inbox.innerHTML = geemailsLoaded.length;
         count.appendChild (inbox);
